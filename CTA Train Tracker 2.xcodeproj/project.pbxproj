@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65AAB12A22FDCF3900186619 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AAB12922FDCF3900186619 /* Extensions.swift */; };
+		65AAB12C22FDD3C300186619 /* ArrivalsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AAB12B22FDD3C300186619 /* ArrivalsCell.swift */; };
+		65AAB12E22FDD42D00186619 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AAB12D22FDD42D00186619 /* BaseCell.swift */; };
 		65EB35DE22FDCC09005815CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EB35DD22FDCC09005815CE /* AppDelegate.swift */; };
-		65EB35E022FDCC09005815CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EB35DF22FDCC09005815CE /* ViewController.swift */; };
+		65EB35E022FDCC09005815CE /* ArrivalsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65EB35DF22FDCC09005815CE /* ArrivalsController.swift */; };
 		65EB35E322FDCC09005815CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65EB35E122FDCC09005815CE /* Main.storyboard */; };
 		65EB35E522FDCC0D005815CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65EB35E422FDCC0D005815CE /* Assets.xcassets */; };
 		65EB35E822FDCC0D005815CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65EB35E622FDCC0D005815CE /* LaunchScreen.storyboard */; };
@@ -34,9 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65AAB12922FDCF3900186619 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		65AAB12B22FDD3C300186619 /* ArrivalsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalsCell.swift; sourceTree = "<group>"; };
+		65AAB12D22FDD42D00186619 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		65EB35DA22FDCC09005815CE /* CTA Train Tracker 2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CTA Train Tracker 2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65EB35DD22FDCC09005815CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		65EB35DF22FDCC09005815CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		65EB35DF22FDCC09005815CE /* ArrivalsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalsController.swift; sourceTree = "<group>"; };
 		65EB35E222FDCC09005815CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65EB35E422FDCC0D005815CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65EB35E722FDCC0D005815CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,6 +80,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65AAB12522FDCF0100186619 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		65AAB12622FDCF0A00186619 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				65AAB12B22FDD3C300186619 /* ArrivalsCell.swift */,
+				65AAB12D22FDD42D00186619 /* BaseCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		65AAB12722FDCF0E00186619 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				65EB35DF22FDCC09005815CE /* ArrivalsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		65AAB12822FDCF1400186619 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				65AAB12922FDCF3900186619 /* Extensions.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		65EB35D122FDCC09005815CE = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +135,11 @@
 		65EB35DC22FDCC09005815CE /* CTA Train Tracker 2 */ = {
 			isa = PBXGroup;
 			children = (
+				65AAB12522FDCF0100186619 /* Model */,
+				65AAB12622FDCF0A00186619 /* View */,
+				65AAB12722FDCF0E00186619 /* Controller */,
+				65AAB12822FDCF1400186619 /* Helpers */,
 				65EB35DD22FDCC09005815CE /* AppDelegate.swift */,
-				65EB35DF22FDCC09005815CE /* ViewController.swift */,
 				65EB35E122FDCC09005815CE /* Main.storyboard */,
 				65EB35E422FDCC0D005815CE /* Assets.xcassets */,
 				65EB35E622FDCC0D005815CE /* LaunchScreen.storyboard */,
@@ -256,7 +297,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65EB35E022FDCC09005815CE /* ViewController.swift in Sources */,
+				65EB35E022FDCC09005815CE /* ArrivalsController.swift in Sources */,
+				65AAB12C22FDD3C300186619 /* ArrivalsCell.swift in Sources */,
+				65AAB12A22FDCF3900186619 /* Extensions.swift in Sources */,
+				65AAB12E22FDD42D00186619 /* BaseCell.swift in Sources */,
 				65EB35DE22FDCC09005815CE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
