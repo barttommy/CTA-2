@@ -27,9 +27,8 @@ extension UIColor {
 }
 
 extension UIImageView {
-    func setImageColor (red: CGFloat, green: CGFloat, blue: CGFloat) {
-        let template = self.image?.withRenderingMode(.alwaysTemplate)
-        self.image = template
-        self.tintColor = UIColor.rgb(red: red, green: green, blue: blue)
+    func setImageColor (color: UIColor) {
+        self.image = self.image?.withRenderingMode(.alwaysTemplate)
+        self.tintColor = color
     }
 }

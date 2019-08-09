@@ -10,13 +10,18 @@ import UIKit
 
 class ArrivalsCell: BaseCell {
     
+    let red    = UIColor.rgb(red: 237, green: 43, blue: 21)
+    let brown  = UIColor.rgb(red: 128, green: 84, blue: 65)
+    let purple = UIColor.rgb(red: 140, green: 27, blue: 181)
+    let blue   = UIColor.rgb(red: 22, green: 189, blue: 245)
+    
     var route: Route? {
         didSet {
             if let station = route?.station {
                 stationLabel.text = station
             }
             if let direction = route?.direction {
-                routeLabel.text = "Blue Line to \(direction)"
+                routeLabel.text = "To: \(direction)"
             }
             if let etas = route?.etas {
                 let length = etas.count - 1
@@ -25,6 +30,20 @@ class ArrivalsCell: BaseCell {
                 }
                 arrivalsTextView.text.append("\(etas[length])")
             }
+            if let type = route?.type {
+                var color = UIColor.black
+                if type == .red95th || type == .redHoward {
+                    color = red
+                } else if type == .brownLoop || type == .brownKimbal {
+                    color = brown
+                } else if type == .purpleLoop || type == .purpleLinden {
+                    color = purple
+                } else if type == .blueForest || type == .blueOhare {
+                    color = blue
+                }
+                trainImageView.setImageColor(color: color)
+                routeLabel.textColor = color
+            }
         }
     }
     
@@ -32,7 +51,6 @@ class ArrivalsCell: BaseCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "train_image")
-        imageView.setImageColor(red: 22, green: 189, blue: 245)
         return imageView
     }()
     
@@ -50,13 +68,15 @@ class ArrivalsCell: BaseCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 18)
+        //label.font = UIFont.systemFont(ofSize: 18)
         return label
     }()
     
     let routeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 18)
+        //label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = UIColor.rgb(red: 22, green: 189, blue: 245)
         return label
     }()
