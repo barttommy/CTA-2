@@ -11,22 +11,30 @@ import UIKit
 class ArrivalsController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "route"
+    //var routes = [Route]()
+    
+    var routes: [Route] = {
+        var test = Route(type: .blueForest, direction: "Forest Park", station: "Clark/Lake", etas: ["Arriving in 5min", "Arriving in 10min", "Arriving in 15min"])
+        var test2 = Route(type: .blueForest, direction: "Forest Park", station: "Clark/Lake", etas: ["Arriving in 5min", "Arriving in 10min", "Arriving in 15min", "Arriving in 15min", "Arriving in 15min"])
+        return [test, test2]
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.title = "Incoming Trains"
         collectionView?.backgroundColor = UIColor.rgb(red: 247, green: 247, blue: 247)
         collectionView?.register(ArrivalsCell.self, forCellWithReuseIdentifier: cellId)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        return 5
+        return routes.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ArrivalsCell
+        
+        cell.route = routes[indexPath.item]
         
         cell.backgroundColor = UIColor.white
         cell.contentView.layer.cornerRadius = 2.0
@@ -44,7 +52,8 @@ class ArrivalsController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 32, height: 256)
+        let textViewHeight = CGFloat(routes[indexPath.item].etas.count) * 19.5
+        return CGSize(width: view.frame.width - 32, height: 68 + textViewHeight + 16)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
