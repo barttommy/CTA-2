@@ -6,23 +6,41 @@
 //  Copyright © 2019 Thomas Bart. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Route {
-    var type : TrainType
-    var station : String
-    var direction : String
+    let color : UIColor
+    let line : String
+    let station : String
+    let destination : String
     var etas : [String]
     
-    init (type: TrainType, direction: String, station: String, etas : [String]) {
-        self.type = type
-        self.direction = direction
+    init (line: String, destination: String, station: String, etas : [String]) {
+        if line == "Brn" {
+            color = TrainColor.brown
+        } else if line == "P" {
+            color = TrainColor.purple
+        } else if line == "Red" {
+            color = TrainColor.red
+        } else if line == "Blue" {
+            color = TrainColor.blue
+        } else if line == "G" {
+            color = TrainColor.green
+        } else if line == "Org" {
+            color = TrainColor.orange
+        } else if line == "Pink" {
+            color = TrainColor.pink
+        } else {
+            color = UIColor.white
+        }
+        self.line = line
+        self.destination = destination
         self.station = station
         self.etas = etas
     }
     
     func sharesRoute (with route: Route) -> Bool {
-        if self.type == route.type && self.direction == route.direction && self.station == route.station {
+        if self.line == route.line && self.destination == route.destination && self.station == route.station {
             return true
         } else {
             return false
