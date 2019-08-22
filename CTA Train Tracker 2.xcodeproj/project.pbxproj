@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		658B8F5B230DA5360048CA00 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B8F5A230DA5360048CA00 /* Constants.swift */; };
+		658B8F5D230EEAB50048CA00 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B8F5C230EEAB50048CA00 /* Errors.swift */; };
 		65AAB12A22FDCF3900186619 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AAB12922FDCF3900186619 /* Extensions.swift */; };
 		65AAB12C22FDD3C300186619 /* ArrivalsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AAB12B22FDD3C300186619 /* ArrivalsCell.swift */; };
 		65AAB12E22FDD42D00186619 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AAB12D22FDD42D00186619 /* BaseCell.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		658B8F5A230DA5360048CA00 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		658B8F5C230EEAB50048CA00 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		65AAB12922FDCF3900186619 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		65AAB12B22FDD3C300186619 /* ArrivalsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalsCell.swift; sourceTree = "<group>"; };
 		65AAB12D22FDD42D00186619 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
@@ -90,8 +92,10 @@
 			isa = PBXGroup;
 			children = (
 				65AAB12F22FDFA8400186619 /* Route.swift */,
+				658B8F5C230EEAB50048CA00 /* Errors.swift */,
 				65AAB13322FE1B0D00186619 /* ParseTrainData.swift */,
 				658B8F5A230DA5360048CA00 /* Constants.swift */,
+				65AAB12922FDCF3900186619 /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -111,14 +115,6 @@
 				65EB35DF22FDCC09005815CE /* ArrivalsController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		65AAB12822FDCF1400186619 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				65AAB12922FDCF3900186619 /* Extensions.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		65EB35D122FDCC09005815CE = {
@@ -147,7 +143,6 @@
 				65AAB12522FDCF0100186619 /* Model */,
 				65AAB12622FDCF0A00186619 /* View */,
 				65AAB12722FDCF0E00186619 /* Controller */,
-				65AAB12822FDCF1400186619 /* Helpers */,
 				65EB35DD22FDCC09005815CE /* AppDelegate.swift */,
 				65EB35E122FDCC09005815CE /* Main.storyboard */,
 				65EB35E422FDCC0D005815CE /* Assets.xcassets */,
@@ -313,6 +308,7 @@
 				65AAB13022FDFA8400186619 /* Route.swift in Sources */,
 				65AAB12E22FDD42D00186619 /* BaseCell.swift in Sources */,
 				65EB35DE22FDCC09005815CE /* AppDelegate.swift in Sources */,
+				658B8F5D230EEAB50048CA00 /* Errors.swift in Sources */,
 				658B8F5B230DA5360048CA00 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -37,16 +37,18 @@ func getTrainArrivalData (for requestedStation: String) -> [Route] {
         do {
             let arrivals = try JSONDecoder().decode(Root.self, from: data)
             for train in arrivals.ctatt.eta {
-                let eta = formatArrivalTime(time: train.arrT)
-                let route = Route(line: train.rt, destination: train.destNm, station: train.staNm, etas: [eta])
-                let index = routeCellIndex(for: route, in: routes)
-                if index > -1 {
-                    routes[index].etas.append(eta)
-                } else {
-                    if route.station == requestedStation {
-                        routes.append(route)
+                do {
+                    let eta = formatArrivalTime(time: train.arrT)
+                    let route = try Route(line: train.rt, destination: train.destNm, station: train.staNm, etas: [eta])
+                    let index = routeCellIndex(for: route, in: routes)
+                    if index > -1 {
+                        routes[index].etas.append(eta)
+                    } else {
+                        if route.station == requestedStation {
+                            routes.append(route)
+                        }
                     }
-                }
+                } catch is TrainError { }
             }
             DispatchQueue.global(qos: .default).async {
                 routes.sort(by: {$0.line < $1.line})

@@ -15,7 +15,7 @@ class Route {
     let destination : String
     var etas : [String]
     
-    init (line: String, destination: String, station: String, etas : [String]) {
+    init (line: String, destination: String, station: String, etas : [String]) throws {
         if line == "Brn" {
             color = TrainColor.brown
         } else if line == "P" {
@@ -30,8 +30,16 @@ class Route {
             color = TrainColor.orange
         } else if line == "Pink" {
             color = TrainColor.pink
+        } else if line == "Y" {
+            color = TrainColor.yellow
         } else {
-            color = UIColor.white
+            throw TrainError.invalidLine
+        }
+        if destination == "See train" {
+            throw TrainError.invalidDestination
+        }
+        if etas.count == 4 {
+            throw TrainError.trainLimitReached
         }
         self.line = line
         self.destination = destination
