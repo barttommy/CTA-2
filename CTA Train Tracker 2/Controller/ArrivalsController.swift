@@ -43,6 +43,7 @@ class ArrivalsController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     @objc func handleSearch() {
+        self.navigationController?.pushViewController(SearchController(), animated: true)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
