@@ -72,6 +72,7 @@ func routeCellIndex(for route: Route, in routes: [Route]) -> Int {
     return -1
 }
 
+//TODO: Clean up
 func formatArrivalTime (time: String) -> String {
     var eta = time
     if let index = time.firstIndex(of: "T") {

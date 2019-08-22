@@ -16,7 +16,7 @@ class ArrivalsController: UICollectionViewController, UICollectionViewDelegateFl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        routes = getTrainArrivalData(for: requestedStation)
+        fetchTrainData()
     }
 
     override func viewDidLoad() {
@@ -24,19 +24,18 @@ class ArrivalsController: UICollectionViewController, UICollectionViewDelegateFl
         navigationItem.title = "Incoming Trains"
         collectionView?.backgroundColor = UIColor.rgb(red: 247, green: 247, blue: 247)
         collectionView?.register(ArrivalsCell.self, forCellWithReuseIdentifier: cellId)
-        
         setupNavBarButtons()
     }
     
     func setupNavBarButtons() {
         let refreshImage = UIImage(named: "refresh")?.withRenderingMode(.alwaysOriginal)
-        let refreshButton = UIBarButtonItem(image: refreshImage, style: .plain, target: self, action: #selector(handleRefresh))
+        let refreshButton = UIBarButtonItem(image: refreshImage, style: .plain, target: self, action: #selector(fetchTrainData))
         let searchImage = UIImage(named: "search")?.withRenderingMode(.alwaysOriginal)
         let searchButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
         navigationItem.rightBarButtonItems = [refreshButton, searchButton]
     }
     
-    @objc func handleRefresh() {
+    @objc func fetchTrainData() {
         routes.removeAll()
         routes = getTrainArrivalData(for: requestedStation)
         self.collectionView?.reloadData()

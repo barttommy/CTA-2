@@ -8,13 +8,41 @@
 
 import UIKit
 
-class SearchController: UITableViewController {
+//TODO: Create a nicer design for the cells
+class SearchController: UITableViewController, UISearchBarDelegate {
     
     let cellId = "station"
-
+    lazy var searchBar: UISearchBar = UISearchBar()
+    var filteredStations = [String]()
+    var searching = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.searchBarStyle = UISearchBar.Style.prominent
+        searchBar.placeholder = " Search Train Stations..."
+        searchBar.sizeToFit()
+        searchBar.delegate = self
+        
+        navigationItem.title = "Stations"
+        self.tableView.tableHeaderView = searchBar
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    }
+    
+    func searchBar (_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchBar.text == nil || searchBar.text == "" {
+            searching = false
+            view.endEditing(true)
+            self.tableView.reloadData()
+        } else {
+            searching = true
+            filteredStations = stations.filter({$0.lowercased().contains(searchText.lowercased())})
+            self.tableView.reloadData()
+        }
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -22,15 +50,34 @@ class SearchController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if searching {
+            return filteredStations.count
+        } else {
+            return stations.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        cell.textLabel?.text = "Fullerton"
+        let station : String
+        if searching {
+            station = filteredStations[indexPath.row]
+        } else {
+            station = stations[indexPath.row]
+        }
+        cell.textLabel?.text = station
         return cell
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let arrivalsController = navigationController?.viewControllers[0] as! ArrivalsController
+        let requestedStation: String
+        if searching {
+            requestedStation = filteredStations[indexPath.row]
+        } else {
+            requestedStation = stations[indexPath.row]
+        }
+        arrivalsController.requestedStation = requestedStation
+        self.navigationController?.popViewController(animated: true)
     }
 }

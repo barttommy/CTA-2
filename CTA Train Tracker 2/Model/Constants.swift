@@ -8,6 +8,7 @@
 
 import UIKit
 
+//TODO: look for some nicer colors, especially for green, orange, pink, yellow
 struct TrainColor {
     static let red    = UIColor.rgb(red: 237, green: 43, blue: 21)
     static let brown  = UIColor.rgb(red: 128, green: 84, blue: 65)
