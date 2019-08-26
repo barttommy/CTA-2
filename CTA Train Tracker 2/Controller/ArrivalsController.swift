@@ -48,7 +48,13 @@ class ArrivalsController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return routes.count
+        let count = routes.count
+        if count == 0 {
+            self.collectionView.displayNoTrainsFoundError()
+        } else {
+            self.collectionView.restore()
+        }
+        return count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

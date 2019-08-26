@@ -43,7 +43,10 @@ func getTrainArrivalData (for requestedStation: String) -> [Route] {
     group.enter()
     
     URLSession.shared.dataTask(with: url) {(data, response, err) in
-        guard let data = data else { return }
+        guard let data = data else {
+            group.leave()
+            return
+        }
         do {
             let arrivals = try JSONDecoder().decode(Root.self, from: data)
             for train in arrivals.ctatt.eta {
@@ -66,6 +69,7 @@ func getTrainArrivalData (for requestedStation: String) -> [Route] {
             }
         }
         catch let jsonErr {
+            group.leave()
             print ("Error parsing JSON: ", jsonErr)
         }
     }.resume()
