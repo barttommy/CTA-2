@@ -1,6 +1,6 @@
 # Chicago Train Tracker App
 
-Rebuilding CTA train tracking app programmatically with a collection view to achieve a better looking design 
+iOS Mobile Application that tracks incoming trains for the CTA
 
 Some project goals:
 
