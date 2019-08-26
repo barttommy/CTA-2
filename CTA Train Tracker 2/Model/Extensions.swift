@@ -48,3 +48,14 @@ extension UICollectionViewCell {
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
     }
 }
+
+extension UITextView {
+    func setupTrainTextView () {
+        self.translatesAutoresizingMaskIntoConstraints = true
+        self.font = UIFont.systemFont(ofSize: 16)
+        self.textContainerInset = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
+        self.sizeToFit()
+        self.isScrollEnabled = false
+        self.isEditable = false
+    }
+}

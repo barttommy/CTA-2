@@ -8,5 +8,5 @@
 
 import Foundation
 
-// TODO: Get stations dynamically from JSON Parsing OR define them all? hm
+// TODO: Get available stations dynamically from JSON Parsing. This is example data for proof of concept.
 let stations = ["Fullerton", "Clark/Lake", "Kimball", "Southport", "Diversey"]

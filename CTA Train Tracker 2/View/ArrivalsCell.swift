@@ -20,9 +20,11 @@ class ArrivalsCell: BaseCell {
             if let etas = route?.etas {
                 let length = etas.count - 1
                 for i in 0..<length {
-                    arrivalsTextView.text.append("\(etas[i])\n")
+                    arrivalsTextView.text.append("\(etas[i].arrivalTime)\n")
+                    timeTextView.text.append("\(etas[i].timeRemaining)\n")
                 }
-                arrivalsTextView.text.append("\(etas[length])")
+                arrivalsTextView.text.append("\(etas[length].arrivalTime)")
+                timeTextView.text.append("\(etas[length].timeRemaining)")
             }
             if let color = route?.color {
                 trainImageView.setImageColor(color: color)
@@ -36,16 +38,6 @@ class ArrivalsCell: BaseCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "train_image")
         return imageView
-    }()
-    
-    let arrivalsTextView: UITextView = {
-        let textView = UITextView()
-        textView.translatesAutoresizingMaskIntoConstraints = true
-        textView.font = UIFont.systemFont(ofSize: 16)
-        textView.textContainerInset = UIEdgeInsets(top: 0, left: -4, bottom: 0, right: 0)
-        textView.sizeToFit()
-        textView.isScrollEnabled = false
-        return textView
     }()
     
     let stationLabel: UILabel = {
@@ -63,9 +55,23 @@ class ArrivalsCell: BaseCell {
         return label
     }()
     
+    let arrivalsTextView: UITextView = {
+        let textView = UITextView()
+        textView.setupTrainTextView()
+        return textView
+    }()
+    
+    let timeTextView: UITextView = {
+        let textView = UITextView()
+        textView.setupTrainTextView()
+        textView.textAlignment = NSTextAlignment.right
+        return textView
+    }()
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         arrivalsTextView.text = ""
+        timeTextView.text = ""
     }
     
     override func setupViews() {
@@ -74,13 +80,17 @@ class ArrivalsCell: BaseCell {
         addSubview(arrivalsTextView)
         addSubview(stationLabel)
         addSubview(routeLabel)
+        addSubview(timeTextView)
+        
         
         // Horizontal Constraints
         addConstraintsWithFormat(format: "H:|-16-[v0(44)]", views: trainImageView)
-        addConstraintsWithFormat(format: "H:|-68-[v0]-16-|", views: arrivalsTextView)
+        addConstraintsWithFormat(format: "H:|-68-[v0(200)][v1]-16-|", views: arrivalsTextView, timeTextView)
+        
         
         // Vertical Constraints
         addConstraintsWithFormat(format: "V:|-16-[v0(44)]-8-[v1]", views: trainImageView, arrivalsTextView)
+        addConstraintsWithFormat(format: "V:|-16-[v0(44)]-8-[v1]", views: trainImageView, timeTextView)
         
         // Station Label Constraints
         addConstraint(NSLayoutConstraint(item: stationLabel, attribute: .bottom, relatedBy: .equal, toItem: routeLabel, attribute: .top, multiplier: 1, constant: -2))

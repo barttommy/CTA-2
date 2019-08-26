@@ -13,9 +13,9 @@ class Route {
     let line : String
     let station : String
     let destination : String
-    var etas : [String]
+    var etas : [ETA]
     
-    init (line: String, destination: String, station: String, etas : [String]) throws {
+    init (line: String, destination: String, station: String, etas : [ETA]) throws {
         if line == "Brn" {
             color = TrainColor.brown
         } else if line == "P" {

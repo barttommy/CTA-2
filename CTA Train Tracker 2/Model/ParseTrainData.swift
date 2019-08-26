@@ -22,6 +22,16 @@ struct Arrivals : Decodable {
     let arrT   : String
 }
 
+struct ETA {
+    let arrivalTime: String
+    let timeRemaining: String
+    
+    init(arrivalTime: String, timeRemaining: String) {
+        self.arrivalTime = arrivalTime
+        self.timeRemaining = timeRemaining
+    }
+}
+
 func getTrainArrivalData (for requestedStation: String) -> [Route] {
     var routes = [Route]()
     let apiKey = "73436616b5af4465bc65790aa9d4886c"
@@ -72,30 +82,33 @@ func routeCellIndex(for route: Route, in routes: [Route]) -> Int {
     return -1
 }
 
-//TODO: Clean up
-func formatArrivalTime (time: String) -> String {
-    var eta = time
+func formatArrivalTime (time: String) -> ETA {
+    var arrivalTime = time
+    var timeRemaining = ""
     if let index = time.firstIndex(of: "T") {
         let startIndex = time.index(after: index)
         let endIndex = time.index(startIndex, offsetBy: 4)
-        let arrivalTime = String(time[startIndex...endIndex])
+        let arrivalTimeString = String(time[startIndex...endIndex])
         let militaryFormat = DateFormatter()
         militaryFormat.dateFormat = "HH:mm"
-        if let date = militaryFormat.date(from: arrivalTime) {
+        if let date = militaryFormat.date(from: arrivalTimeString) {
             let timeDifference = date.timeIntervalSinceNow
             let hours = floor(timeDifference / 60 / 60)
             let minutes = Int(floor((timeDifference - (hours * 60 * 60)) / 60))
             let standardFormat = DateFormatter()
             standardFormat.dateFormat = "h:mm"
             let expectedArrival = standardFormat.string(from: date)
-            let timeRemaining : String
             if minutes == 59 || minutes == 0 {
-                timeRemaining = "Now"
+                timeRemaining = "Due"
             } else {
-                timeRemaining = "in \(minutes+1)m"
+                timeRemaining = "\(minutes+1) min"
             }
-            eta = "Arriving \(timeRemaining) (\(expectedArrival))"
+            var timeOfDay = "am"
+            if hours >= 12 {
+                timeOfDay = "pm"
+            }
+            arrivalTime = "Arriving at \(expectedArrival) \(timeOfDay)"
         }
     }
-    return eta
+    return ETA(arrivalTime: arrivalTime, timeRemaining: timeRemaining)
 }

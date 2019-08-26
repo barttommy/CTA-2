@@ -97,8 +97,8 @@
 			children = (
 				65AAB12F22FDFA8400186619 /* Route.swift */,
 				65AAB13322FE1B0D00186619 /* ParseTrainData.swift */,
-				658B8F5A230DA5360048CA00 /* Constants.swift */,
 				658B8F60230F123B0048CA00 /* StationData.swift */,
+				658B8F5A230DA5360048CA00 /* Constants.swift */,
 				658B8F5C230EEAB50048CA00 /* Errors.swift */,
 				65AAB12922FDCF3900186619 /* Extensions.swift */,
 			);

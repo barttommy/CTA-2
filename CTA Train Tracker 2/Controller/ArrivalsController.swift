@@ -31,7 +31,7 @@ class ArrivalsController: UICollectionViewController, UICollectionViewDelegateFl
         let refreshImage = UIImage(named: "refresh")?.withRenderingMode(.alwaysOriginal)
         let refreshButton = UIBarButtonItem(image: refreshImage, style: .plain, target: self, action: #selector(fetchTrainData))
         let searchImage = UIImage(named: "search")?.withRenderingMode(.alwaysOriginal)
-        let searchButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(handleSearch))
+        let searchButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(pushSearchController))
         navigationItem.rightBarButtonItems = [refreshButton, searchButton]
     }
     
@@ -41,7 +41,7 @@ class ArrivalsController: UICollectionViewController, UICollectionViewDelegateFl
         self.collectionView?.reloadData()
     }
     
-    @objc func handleSearch() {
+    @objc func pushSearchController() {
         self.navigationController?.pushViewController(SearchController(), animated: true)
     }
     
@@ -59,6 +59,10 @@ class ArrivalsController: UICollectionViewController, UICollectionViewDelegateFl
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let textViewHeight = CGFloat(routes[indexPath.item].etas.count) * 19.5
         return CGSize(width: view.frame.width - 32, height: 68 + textViewHeight + 16)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
