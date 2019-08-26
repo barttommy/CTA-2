@@ -44,6 +44,7 @@ class ArrivalsCell: BaseCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = AppColor.cellText
         return label
     }()
     
@@ -51,7 +52,6 @@ class ArrivalsCell: BaseCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = UIColor.rgb(red: 22, green: 189, blue: 245)
         return label
     }()
     

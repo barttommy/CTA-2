@@ -8,7 +8,6 @@
 
 import UIKit
 
-//TODO: Create a nicer design for the cells
 class SearchController: UITableViewController, UISearchBarDelegate {
     
     let cellId = "station"
@@ -26,6 +25,8 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         
         navigationItem.title = "Stations"
         self.tableView.tableHeaderView = searchBar
+        self.tableView.tableFooterView = UIView()
+        self.tableView.backgroundColor = AppColor.viewBackground
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     }
     
@@ -66,6 +67,8 @@ class SearchController: UITableViewController, UISearchBarDelegate {
             station = stations[indexPath.row]
         }
         cell.textLabel?.text = station
+        cell.textLabel?.textColor = AppColor.cellText
+        cell.backgroundColor = AppColor.cellBackground
         return cell
     }
     

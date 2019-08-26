@@ -22,16 +22,18 @@ class ArrivalsController: UICollectionViewController, UICollectionViewDelegateFl
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Incoming Trains"
-        collectionView?.backgroundColor = UIColor.rgb(red: 247, green: 247, blue: 247)
+        collectionView?.backgroundColor = AppColor.viewBackground
         collectionView?.register(ArrivalsCell.self, forCellWithReuseIdentifier: cellId)
         setupNavBarButtons()
     }
     
     func setupNavBarButtons() {
-        let refreshImage = UIImage(named: "refresh")?.withRenderingMode(.alwaysOriginal)
+        let refreshImage = UIImage(named: "refresh")?.withRenderingMode(.alwaysTemplate)
         let refreshButton = UIBarButtonItem(image: refreshImage, style: .plain, target: self, action: #selector(fetchTrainData))
-        let searchImage = UIImage(named: "search")?.withRenderingMode(.alwaysOriginal)
+        let searchImage = UIImage(named: "search")?.withRenderingMode(.alwaysTemplate)
         let searchButton = UIBarButtonItem(image: searchImage, style: .plain, target: self, action: #selector(pushSearchController))
+        refreshButton.tintColor = AppColor.navBarButtons
+        searchButton.tintColor = AppColor.navBarButtons
         navigationItem.rightBarButtonItems = [refreshButton, searchButton]
     }
     
@@ -52,7 +54,9 @@ class ArrivalsController: UICollectionViewController, UICollectionViewDelegateFl
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ArrivalsCell
         cell.route = routes[indexPath.item]
-        cell.addRoundedEdges()
+        cell.backgroundColor = AppColor.cellBackground
+        cell.layer.cornerRadius = 5
+        cell.layer.masksToBounds = true
         return cell
     }
     
