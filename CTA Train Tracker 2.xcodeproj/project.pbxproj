@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		652A21842322C16900A1647C /* ETA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A21832322C16900A1647C /* ETA.swift */; };
+		652A21872322DEBE00A1647C /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A21862322DEBE00A1647C /* UIViewExtensions.swift */; };
+		652A21892322DEEF00A1647C /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A21882322DEEF00A1647C /* UIColorExtensions.swift */; };
+		652A218B2322DF1700A1647C /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A218A2322DF1700A1647C /* UIImageViewExtensions.swift */; };
+		652A218D2322DF5C00A1647C /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A218C2322DF5C00A1647C /* UITextViewExtensions.swift */; };
+		652A218F2322DFAF00A1647C /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A218E2322DFAF00A1647C /* UICollectionViewExtensions.swift */; };
+		652A21912322DFC900A1647C /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652A21902322DFC900A1647C /* DateExtensions.swift */; };
 		658B8F5B230DA5360048CA00 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B8F5A230DA5360048CA00 /* Constants.swift */; };
 		658B8F5D230EEAB50048CA00 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B8F5C230EEAB50048CA00 /* Errors.swift */; };
 		658B8F5F230EEFC40048CA00 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B8F5E230EEFC40048CA00 /* SearchController.swift */; };
 		658B8F61230F123B0048CA00 /* StationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658B8F60230F123B0048CA00 /* StationData.swift */; };
-		65AAB12A22FDCF3900186619 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AAB12922FDCF3900186619 /* Extensions.swift */; };
 		65AAB12C22FDD3C300186619 /* ArrivalsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AAB12B22FDD3C300186619 /* ArrivalsCell.swift */; };
 		65AAB12E22FDD42D00186619 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AAB12D22FDD42D00186619 /* BaseCell.swift */; };
 		65AAB13022FDFA8400186619 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65AAB12F22FDFA8400186619 /* Route.swift */; };
@@ -45,11 +50,16 @@
 
 /* Begin PBXFileReference section */
 		652A21832322C16900A1647C /* ETA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ETA.swift; sourceTree = "<group>"; };
+		652A21862322DEBE00A1647C /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		652A21882322DEEF00A1647C /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		652A218A2322DF1700A1647C /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
+		652A218C2322DF5C00A1647C /* UITextViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
+		652A218E2322DFAF00A1647C /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
+		652A21902322DFC900A1647C /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		658B8F5A230DA5360048CA00 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		658B8F5C230EEAB50048CA00 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		658B8F5E230EEFC40048CA00 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		658B8F60230F123B0048CA00 /* StationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationData.swift; sourceTree = "<group>"; };
-		65AAB12922FDCF3900186619 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		65AAB12B22FDD3C300186619 /* ArrivalsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrivalsCell.swift; sourceTree = "<group>"; };
 		65AAB12D22FDD42D00186619 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		65AAB12F22FDFA8400186619 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -94,6 +104,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		652A21852322DE9000A1647C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				652A21902322DFC900A1647C /* DateExtensions.swift */,
+				652A218E2322DFAF00A1647C /* UICollectionViewExtensions.swift */,
+				652A218C2322DF5C00A1647C /* UITextViewExtensions.swift */,
+				652A218A2322DF1700A1647C /* UIImageViewExtensions.swift */,
+				652A21862322DEBE00A1647C /* UIViewExtensions.swift */,
+				652A21882322DEEF00A1647C /* UIColorExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		65AAB12522FDCF0100186619 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -103,7 +126,6 @@
 				658B8F60230F123B0048CA00 /* StationData.swift */,
 				658B8F5A230DA5360048CA00 /* Constants.swift */,
 				658B8F5C230EEAB50048CA00 /* Errors.swift */,
-				65AAB12922FDCF3900186619 /* Extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +171,7 @@
 		65EB35DC22FDCC09005815CE /* CTA Train Tracker 2 */ = {
 			isa = PBXGroup;
 			children = (
+				652A21852322DE9000A1647C /* Extensions */,
 				65AAB12522FDCF0100186619 /* Model */,
 				65AAB12622FDCF0A00186619 /* View */,
 				65AAB12722FDCF0E00186619 /* Controller */,
@@ -311,16 +334,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				65EB35E022FDCC09005815CE /* ArrivalsController.swift in Sources */,
+				652A21892322DEEF00A1647C /* UIColorExtensions.swift in Sources */,
 				658B8F5F230EEFC40048CA00 /* SearchController.swift in Sources */,
+				652A218D2322DF5C00A1647C /* UITextViewExtensions.swift in Sources */,
 				65AAB12C22FDD3C300186619 /* ArrivalsCell.swift in Sources */,
+				652A21912322DFC900A1647C /* DateExtensions.swift in Sources */,
+				652A21872322DEBE00A1647C /* UIViewExtensions.swift in Sources */,
 				65AAB13422FE1B0D00186619 /* ParseTrainData.swift in Sources */,
-				65AAB12A22FDCF3900186619 /* Extensions.swift in Sources */,
 				658B8F61230F123B0048CA00 /* StationData.swift in Sources */,
 				65AAB13022FDFA8400186619 /* Route.swift in Sources */,
 				65AAB12E22FDD42D00186619 /* BaseCell.swift in Sources */,
 				65EB35DE22FDCC09005815CE /* AppDelegate.swift in Sources */,
 				658B8F5D230EEAB50048CA00 /* Errors.swift in Sources */,
+				652A218F2322DFAF00A1647C /* UICollectionViewExtensions.swift in Sources */,
 				652A21842322C16900A1647C /* ETA.swift in Sources */,
+				652A218B2322DF1700A1647C /* UIImageViewExtensions.swift in Sources */,
 				658B8F5B230DA5360048CA00 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

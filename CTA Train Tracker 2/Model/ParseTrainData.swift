@@ -8,6 +8,7 @@
 
 import Foundation
 
+// For JSON Parsing
 struct Root : Decodable {
     struct StationData : Decodable {
         let eta : [Arrivals]
@@ -15,6 +16,7 @@ struct Root : Decodable {
     let ctatt : StationData
 }
 
+// For JSON Parsing
 struct Arrivals : Decodable {
     let staNm  : String
     let rt     : String
@@ -76,7 +78,7 @@ func routeCellIndex(for route: Route, in routes: [Route]) -> Int {
     return -1
 }
 
-/*  Converts string of the format "YYYY-MM-DDT24:00:00" to get a train's arrival time and time remaining to arrival
+/*  Converts string of the format "YYYY-MM-DDT24:00:00"
     Ex. For the string "YYYY-MM-DDT24:00:00"
         arrivalTime = Arriving at 12:00 am
         timeRemaining = 10 min
