@@ -19,9 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let layout = UICollectionViewFlowLayout()
         window?.rootViewController = UINavigationController(rootViewController: ArrivalsController(collectionViewLayout: layout))
         
-        UINavigationBar.appearance().barTintColor = AppColor.navBar
-        UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().barTintColor = Theme.current.navBarColor
+        UINavigationBar.appearance().tintColor = Theme.current.navBarTintColor
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: Theme.current.cellTextColor]
         UINavigationBar.appearance().isTranslucent = false
         
         return true

@@ -16,7 +16,7 @@ extension UITextView {
         self.sizeToFit()
         self.isScrollEnabled = false
         self.isEditable = false
-        self.backgroundColor = AppColor.cellBackground
-        self.textColor = AppColor.cellText
+        self.backgroundColor = Theme.current.cellBackgroundColor
+        self.textColor = Theme.current.cellTextColor
     }
 }

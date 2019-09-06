@@ -21,7 +21,7 @@ extension UICollectionView {
         errorMessage.append(subtitleString)
         
         errorLabel.attributedText = errorMessage
-        errorLabel.textColor = AppColor.cellText
+        errorLabel.textColor = Theme.current.cellTextColor
         errorLabel.numberOfLines = 5
         errorLabel.textAlignment = .center
         errorLabel.sizeToFit()

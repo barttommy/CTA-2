@@ -15,6 +15,10 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     var filteredStations = [String]()
     var searching = false
     
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return Theme.current.statusBarStyle
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +30,9 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         navigationItem.title = "Stations"
         self.tableView.tableHeaderView = searchBar
         self.tableView.tableFooterView = UIView()
-        self.tableView.backgroundColor = AppColor.viewBackground
+        self.tableView.backgroundColor = Theme.current.viewBackgroundColor
+        self.navigationController?.navigationBar.barStyle = Theme.current.statusBarStyle
+    
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     }
     
@@ -67,8 +73,8 @@ class SearchController: UITableViewController, UISearchBarDelegate {
             station = stations[indexPath.row]
         }
         cell.textLabel?.text = station
-        cell.textLabel?.textColor = AppColor.cellText
-        cell.backgroundColor = AppColor.cellBackground
+        cell.textLabel?.textColor = Theme.current.cellTextColor
+        cell.backgroundColor = Theme.current.cellBackgroundColor
         return cell
     }
     

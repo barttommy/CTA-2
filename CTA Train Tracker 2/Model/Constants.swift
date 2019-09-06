@@ -19,10 +19,10 @@ struct TrainColor {
     static let yellow = UIColor.yellow
 }
 
-struct AppColor {
-    static let viewBackground = UIColor.rgb(red: 40, green: 40, blue: 40)
-    static let cellBackground = UIColor.rgb(red: 70, green: 70, blue: 70)
-    static let cellText = UIColor.white
-    static let navBar = UIColor.rgb(red: 55, green: 55, blue: 55)
-    static let navBarButtons = UIColor.white
-}
+//struct AppColor {
+//    static let viewBackground = UIColor.rgb(red: 40, green: 40, blue: 40)
+//    static let cellBackground = UIColor.rgb(red: 70, green: 70, blue: 70)
+//    static let cellText = UIColor.white
+//    static let navBar = UIColor.rgb(red: 55, green: 55, blue: 55)
+//    static let navBarButtons = UIColor.white
+//}
