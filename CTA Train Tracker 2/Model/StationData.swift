@@ -8,5 +8,5 @@
 
 import Foundation
 
-// TODO: Get available stations dynamically from JSON Parsing. This is example data for proof of concept.
+// TODO: Example data for proof of concept
 let stations = ["Fullerton", "Clark/Lake", "Kimball", "Southport", "Diversey"]

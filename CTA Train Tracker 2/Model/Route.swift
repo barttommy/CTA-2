@@ -38,9 +38,6 @@ class Route {
         if destination == "See train" {
             throw TrainError.invalidDestination
         }
-        if etas.count > 3 {
-            throw TrainError.trainLimitReached
-        }
         self.line = line
         self.destination = destination
         self.station = station
